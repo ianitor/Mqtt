@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mqtt-stresser
+  namespace: stresser
+spec:
+  containers:
+    - name: mqtt-stresser
+      image: inovex/mqtt-stresser
+      resources:
+        requests:
+          memory: "1024Mi"
+          cpu: "3"
+        limits:
+          memory: "2048Mi"
+          cpu: "4"      
+      args: ["-broker", "emqx.emqx-operator-system.svc.cluster.local:1883",
+             "-num-clients", "100", 
+             "-num-messages", "1500", 
+             "-rampup-delay", "1s", 
+             "-rampup-size", "10", 
+             "-global-timeout", "180s", 
+             "-timeout", "20s"]
+  
+
+  #kubectl run mqtt-stresser --image=inovex/mqtt-stresser --restart=Never -- -broker emqx.emqx-operator-system.svc.cluster.local:1883 -num-clients 100 -num-messages 1500 -rampup-delay 1s -rampup-size 10 -global-timeout 180s -timeout 20s
