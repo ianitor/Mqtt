@@ -17,7 +17,7 @@ kubectl get pods -l "control-plane=controller-manager" -n emqx-operator-system
 kubectl apply -f ./broker.yaml  
 ´´´
 
-## check clustr status
+## check cluster status
 
 ´´´
 kubectl exec -it emqx-0 -n emqx-operator-system -- emqx_ctl status
