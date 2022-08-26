@@ -1,0 +1,30 @@
+apiVersion: apps.emqx.io/v1beta3
+kind: EmqxBroker
+metadata:
+  name: emqx
+  namespace: "emqx-operator-system"
+spec:
+  replicas: 3
+  emqxTemplate:
+   # image: emqx/emqx:5.0.6
+    image: emqx/emqx:4.4.6
+ #   config:
+ #     listener.tcp.external: 0.0.0.0:1883
+ #     management.listener.http: 0.0.0.0:8081
+ #     dashboard.listener.http: 0.0.0.0:18083 
+  #  resources:
+  #    limits:
+  #      cpu: 500m
+  #      memory: 200Mi
+  #    requests:
+  #      cpu: 500m
+  #      memory: 100Mi
+    serviceTemplate:
+      spec:
+        type: LoadBalancer
+        ports:
+        -  name: mqtt
+           protocol: "TCP"
+           port: 1883
+    acl:
+      - "{allow, all}."
