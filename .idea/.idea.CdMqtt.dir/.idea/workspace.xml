@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9c1df846-5562-43cd-a09f-21d9253781f5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/mqttstresser/remove.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mqttstresser/start.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mqttstresser/stresser.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mqttstresser/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CdMqtt.dir/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CdMqtt.dir/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CdMqtt.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CdMqtt.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/emqx/broker.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/emqx/broker.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/emqx/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/emqx/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mqttstresser/start.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/mqttstresser/start.ps1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mqttstresser/stresser.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/mqttstresser/stresser.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +25,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2DskhaOKs2CMbR9RFejRV9LikAf" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -40,7 +43,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;application.passwordSafe&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -53,7 +56,10 @@
       <option name="presentableId" value="Default" />
       <updated>1661495302692</updated>
       <workItem from="1661495309476" duration="3367000" />
-      <workItem from="1661510776305" duration="514000" />
+      <workItem from="1661510776305" duration="2871000" />
+      <workItem from="1661579662158" duration="4022000" />
+      <workItem from="1661625436971" duration="7189000" />
+      <workItem from="1661702158614" duration="1197000" />
     </task>
     <task id="LOCAL-00001" summary="Added demo for vernemq">
       <created>1661499880038</created>
@@ -62,7 +68,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661499880038</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added scripts for stresser">
+      <created>1661511597574</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1661511597574</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -85,6 +98,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Added demo for vernemq" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added demo for vernemq" />
+    <MESSAGE value="Added scripts for stresser" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added scripts for stresser" />
   </component>
 </project>
