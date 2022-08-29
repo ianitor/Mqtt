@@ -5,12 +5,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9c1df846-5562-43cd-a09f-21d9253781f5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/mqttstresser/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.CdMqtt.dir/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CdMqtt.dir/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/MqttBenchmark/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/MqttBenchmark/.idea/.idea.MqttBenchmark/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/MqttBenchmark/.idea/.idea.MqttBenchmark/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/MqttBenchmark/.idea/.idea.MqttBenchmark/.idea/projectSettingsUpdater.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/MqttBenchmark/.idea/.idea.MqttBenchmark/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/MqttBenchmark/.idea/.idea.MqttBenchmark/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/MqttBenchmark/MqttBenchmark.sln" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/MqttBenchmark/MqttBenchmark/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/MqttBenchmark/MqttBenchmark/BenchMqttClient.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/MqttBenchmark/MqttBenchmark/Commands/IMqttBenchCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/MqttBenchmark/MqttBenchmark/Commands/Implementations/PublishCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/MqttBenchmark/MqttBenchmark/Commands/Implementations/SubCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/MqttBenchmark/MqttBenchmark/Commands/MqttBenchCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/MqttBenchmark/MqttBenchmark/Constants.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/MqttBenchmark/MqttBenchmark/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/MqttBenchmark/MqttBenchmark/IBenchMqttClient.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/MqttBenchmark/MqttBenchmark/IParser.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/MqttBenchmark/MqttBenchmark/MqttBenchOptions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/MqttBenchmark/MqttBenchmark/MqttBenchmark.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/MqttBenchmark/MqttBenchmark/Parser.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/MqttBenchmark/MqttBenchmark/PerfManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/MqttBenchmark/MqttBenchmark/PerformanceMonitor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/MqttBenchmark/MqttBenchmark/Program.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/MqttBenchmark/MqttBenchmark/Runner.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/MqttBenchmark/MqttBenchmark/nlog.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/MqttBenchmark/NuGet.Config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/mqtt_bench_pub.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/mqtt_bench_pub2.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/mqtt_bench_sub.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/removepub.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/removesub.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/startpub.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/csharpmqtt/startsub.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/emqtt-bench/emqtt-bench" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CdMqtt.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CdMqtt.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/emqx/broker.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/emqx/broker.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/emqx/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/emqx/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mqttstresser/start.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/mqttstresser/start.ps1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mqttstresser/stresser.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/mqttstresser/stresser.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -20,6 +50,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/csharpmqtt/MqttBenchmark/MqttBenchmark/Commands/Implementations/PublishCommand.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -59,7 +92,8 @@
       <workItem from="1661510776305" duration="2871000" />
       <workItem from="1661579662158" duration="4022000" />
       <workItem from="1661625436971" duration="7189000" />
-      <workItem from="1661702158614" duration="1197000" />
+      <workItem from="1661702158614" duration="5274000" />
+      <workItem from="1661757926930" duration="2256000" />
     </task>
     <task id="LOCAL-00001" summary="Added demo for vernemq">
       <created>1661499880038</created>
@@ -75,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661511597574</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added further settings.">
+      <created>1661703600739</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1661703600739</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -99,6 +140,7 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Added demo for vernemq" />
     <MESSAGE value="Added scripts for stresser" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added scripts for stresser" />
+    <MESSAGE value="Added further settings." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added further settings." />
   </component>
 </project>

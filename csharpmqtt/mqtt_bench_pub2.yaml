@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: csharpmqttbench-pub-deployment
+  namespace: csharpmqttbench
+  labels:
+    app: csharpmqttbench-pub-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: csharpmqttbench-pub-deployment
+  template:
+    metadata:
+      labels:
+        app: csharpmqttbench-pub-deployment
+    spec:
+      containers:
+      - name: mqtt-bench
+        image: registry.salzburgdev.at/csharpmqttbench:1.0.2
+  #      resources:
+  #        requests:
+  #          memory: "1024Mi"
+  #          cpu: "3"
+  #        limits:
+  #          memory: "2048Mi"
+  #          cpu: "3"     
+  #      command: ["/bin/mqtt_bench"]
+        args: [
+            "-c", "pub",
+            "-s", "emqx.emqx-operator-system.svc.cluster.local",
+            "-c", "100",
+            "-mc", "1500",
+            "-i", "100"
+              ]
+  
+

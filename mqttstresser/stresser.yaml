@@ -7,20 +7,22 @@ spec:
   containers:
     - name: mqtt-stresser
       image: inovex/mqtt-stresser
-      resources:
-        requests:
-          memory: "1024Mi"
-          cpu: "3"
-        limits:
-          memory: "2048Mi"
-          cpu: "3"      
+#      resources:
+#        requests:
+#          memory: "1024Mi"
+#          cpu: "3"
+#        limits:
+#          memory: "2048Mi"
+#          cpu: "3"      
       args: ["-broker", "emqx.emqx-operator-system.svc.cluster.local:1883",
-             "-num-clients", "2", 
+             "-num-clients", "100", 
              "-num-messages", "1500", 
              "-rampup-delay", "1s", 
              "-rampup-size", "10", 
              "-global-timeout", "180s", 
+             "-pause-between-messages", "100ms", 
              "-timeout", "20s"]
   
 
-  #kubectl run mqtt-stresser --image=inovex/mqtt-stresser --restart=Never -- -broker emqx.emqx-operator-system.svc.cluster.local:1883 -num-clients 100 -num-messages 1500 -rampup-delay 1s -rampup-size 10 -global-timeout 180s -timeout 20s
+  #kubectl run mqtt-stresser --image=inovex/mqtt-stresser --restart=Never -- -broker 192.168.14.71:1883 -num-clients 100 -num-messages 1500 -rampup-delay 1s -rampup-size 10 -global-timeout 180s -timeout 20s
+  #docker run --rm inovex/mqtt-stresser -broker 192.168.14.71:1883 -num-clients 1000 -num-messages 1500 -rampup-delay 1s -rampup-size 10 -global-timeout 180s -timeout 20s

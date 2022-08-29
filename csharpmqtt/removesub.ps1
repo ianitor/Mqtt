@@ -1,0 +1,1 @@
+kubectl delete -f ./mqtt_bench_sub.yaml

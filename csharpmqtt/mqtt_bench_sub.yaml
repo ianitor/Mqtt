@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: csharpmqttbench-sub
+  namespace: csharpmqttbench
+spec:
+  containers:
+    - name: mqtt-bench
+      image: registry.salzburgdev.at/csharpmqttbench:1.0.2
+#      resources:
+#        requests:
+#          memory: "1024Mi"
+#          cpu: "3"
+#        limits:
+#          memory: "2048Mi"
+#          cpu: "3"     
+#      command: ["/bin/mqtt_bench"]
+      args: [
+             "-c", "sub",
+             "-s", "emqx.emqx-operator-system.svc.cluster.local",
+             "-c", "100"
+            ]
+  
+
