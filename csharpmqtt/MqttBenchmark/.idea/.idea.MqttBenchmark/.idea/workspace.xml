@@ -8,41 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b682e207-eaf7-4bbe-b09f-b648718e352c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.MqttBenchmark/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.MqttBenchmark/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.MqttBenchmark/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.MqttBenchmark/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.MqttBenchmark/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MqttBenchmark.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MqttBenchmark/.dockerignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MqttBenchmark/BenchMqttClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MqttBenchmark/Commands/IMqttBenchCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MqttBenchmark/Commands/Implementations/PublishCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MqttBenchmark/Commands/Implementations/SubCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MqttBenchmark/Commands/MqttBenchCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MqttBenchmark/Constants.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MqttBenchmark/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MqttBenchmark/IBenchMqttClient.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MqttBenchmark/IParser.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MqttBenchmark/MqttBenchOptions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MqttBenchmark/MqttBenchmark.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MqttBenchmark/Parser.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MqttBenchmark/PerfManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MqttBenchmark/PerformanceMonitor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MqttBenchmark/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MqttBenchmark/Runner.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MqttBenchmark/nlog.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NuGet.Config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mqtt_bench_pub.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mqtt_bench_pub2.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mqtt_bench_sub.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../removepub.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../removesub.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../startpub.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../startsub.ps1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../emqtt-bench/emqtt-bench" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MqttBenchmark/EnumerableExtensions.cs" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../emqtt-bench/mqtt_bench_pub.yaml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../emqtt-bench/mqtt_bench_pub2.yaml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../emqtt-bench/mqtt_bench_sub.yaml" afterDir="false" />
@@ -51,8 +17,16 @@
       <change afterPath="$PROJECT_DIR$/../../emqtt-bench/removesub.ps1" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../emqtt-bench/startpub.ps1" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../../emqtt-bench/startsub.ps1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../emqx/broker5.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mosquitto/mosquitto.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../mosquitto/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../rabbitmq/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/.idea.CdMqtt.dir/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/.idea.CdMqtt.dir/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../.idea/.idea.CdMqtt.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/.idea.CdMqtt.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../mqttstresser/stresser.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../mqttstresser/stresser.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MqttBenchmark/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MqttBenchmark/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MqttBenchmark/BenchMqttClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MqttBenchmark/BenchMqttClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MqttBenchmark/Commands/Implementations/PublishCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MqttBenchmark/Commands/Implementations/PublishCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MqttBenchmark/PerfManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MqttBenchmark/PerfManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,20 +37,31 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6d0c48abdeff4733b8cc741db8fabcae37c00/0f/4e6c054d/ConcurrentDictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/716a8461e15e4b82aeeaf851124c62de5a00/76/d8a0008c/IMetricsContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/716a8461e15e4b82aeeaf851124c62de5a00/a1/4eca98a3/RuntimeResult.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/716a8461e15e4b82aeeaf851124c62de5a00/b1/2d9e22ac/MetricsContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/716a8461e15e4b82aeeaf851124c62de5a00/ca/f4cdff87/RuntimeMeter.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/metadata/7566f5f81b7d440aa80dfc83361172645e00/63/33ecdaf2/Ianitor.Common.Shared.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1d748b26fc9e32bcc95edd064c0f65e324b7e53e09b8fb9574cacb31f3d87f/Average.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2841608a575f65a758c311c4617b26ed3b1dc2aba7ecba65da1d39c228aae/MqttApplicationMessage.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/32195b12b233c971fed2efeb66f28d2a9233c0e8c24a22efa7e9e9351f15e5/MqttApplicationMessageBuilder.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3d0481772c1de491e87829444761d65941b5bb33ae9be07c9ae0a189922153/MqttApplicationMessageReceivedEventArgs.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7aa31768959473729eaac0b8434fa444e59b5f7b5cfe3788668ccf525fa5/Stopwatch.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7b344b6ac8e65b209652bec4e25d7d751c75d1c9f27d2c8a76cefc4aadf2ec/MqttClientSubscribeResult.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9156f7f7d7fe31ecb86103c74e89e22a5242a153d4ccf14e354685cb3fb7b5/Task.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/98cd95be5963bde548a96667c1a29692a779cf88e0141064df82c3e21c9f96/MqttQualityOfServiceLevel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9abcf3b8ca34fe351d9672186ce73b2e2879cb3506ec5645877cc37968ad/ThreadLocal.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cab51cd6894cd4249c2ab61055a484423ef49fc631a4a2b9cea9fdda471c6e8/MqttFactory.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cce6d95d9d2713e38c8f47b93b670245b9ba36bb3fc51b4b77ef1aba1643cd/IMqttClient.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cd7627e83322a4721fde53567875b222ee639dd54473723a9f6c9d9250e111/MqttClientPublishResult.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d1167bc1fc5d8161e5e9f8944994e769170ae72e474d74d9eab546d2f2df2f/MqttClientSubscribeResultItem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/fd3650207558a9a157597ed2118dcef6fa49d117fbd4b5711208ae26b39ad2a/MqttClientOptions.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectId" id="2DzivlRKzFG0JubeXEAKoLHblSn" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -94,12 +79,19 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;application.passwordSafe&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/Users/gerald/Library/Application Support/JetBrains/Rider2022.3/resharper-host/DecompilerCache&quot;,
+      &quot;/Users/gerald/Library/Application Support/JetBrains/Rider2022.3/resharper-host/SourcesCache&quot;,
+      &quot;/Users/gerald/.local/share/Symbols/src&quot;
+    ]
   }
 }</component>
-  <component name="RunManager" selected=".NET Project.MqttBenchmark (sub)">
+  <component name="RunManager" selected=".NET Project.MqttBenchmark (pub)">
     <configuration name="MqttBenchmark (pub)" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/MqttBenchmark/bin/Debug/net6.0/MqttBenchmark" />
-      <option name="PROGRAM_PARAMETERS" value="-c pub -s 192.168.14.71 -c 10 -mc 1500 -i 100" />
+      <option name="PROGRAM_PARAMETERS" value="-c pub -s 192.168.14.226 -c 4000 -mc 1500" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/MqttBenchmark/bin/Debug/net6.0" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
@@ -117,7 +109,7 @@
     </configuration>
     <configuration name="MqttBenchmark (sub)" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/MqttBenchmark/bin/Debug/net6.0/MqttBenchmark" />
-      <option name="PROGRAM_PARAMETERS" value="-c sub -s 192.168.14.71 -c 10" />
+      <option name="PROGRAM_PARAMETERS" value="-c sub -s 192.168.14.226 -c 4000" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/MqttBenchmark/bin/Debug/net6.0" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
@@ -147,7 +139,11 @@
       <option name="presentableId" value="Default" />
       <updated>1661708546817</updated>
       <workItem from="1661708559731" duration="12512000" />
-      <workItem from="1661758916588" duration="1434000" />
+      <workItem from="1661758916588" duration="2145000" />
+      <workItem from="1671545796060" duration="11745000" />
+      <workItem from="1671649926481" duration="6252000" />
+      <workItem from="1672071968939" duration="10638000" />
+      <workItem from="1672477519440" duration="10773000" />
     </task>
     <servers />
   </component>
@@ -174,30 +170,31 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MqttBenchmark/Commands/Implementations/PublishCommand.cs</url>
-          <line>33</line>
-          <properties documentPath="$PROJECT_DIR$/MqttBenchmark/Commands/Implementations/PublishCommand.cs" initialLine="30" containingFunctionPresentation="method 'Execute'">
+          <url>file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/716a8461e15e4b82aeeaf851124c62de5a00/ca/f4cdff87/RuntimeMeter.cs</url>
+          <line>61</line>
+          <properties documentPath="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/716a8461e15e4b82aeeaf851124c62de5a00/ca/f4cdff87/RuntimeMeter.cs" initialLine="61" containingFunctionPresentation="method 'CreateCheckpoint'">
             <startOffsets>
-              <option value="1355" />
+              <option value="1865" />
             </startOffsets>
             <endOffsets>
-              <option value="1432" />
+              <option value="1942" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="1" />
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/MqttBenchmark/Commands/Implementations/SubCommand.cs</url>
-          <line>45</line>
-          <properties documentPath="$PROJECT_DIR$/MqttBenchmark/Commands/Implementations/SubCommand.cs" initialLine="45" containingFunctionPresentation="method 'Execute'">
+          <condition expression="elapsed&gt;20000" language="C#" />
+          <url>file://$PROJECT_DIR$/MqttBenchmark/PerfManager.cs</url>
+          <line>125</line>
+          <properties documentPath="$PROJECT_DIR$/MqttBenchmark/PerfManager.cs" initialLine="124" containingFunctionPresentation="method 'Stop'">
             <startOffsets>
-              <option value="1713" />
+              <option value="4385" />
             </startOffsets>
             <endOffsets>
-              <option value="1750" />
+              <option value="4440" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="3" />
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

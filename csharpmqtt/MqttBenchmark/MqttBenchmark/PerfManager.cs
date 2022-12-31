@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Concurrent;
+using System.Diagnostics;
+using System.Globalization;
 using System.Text;
 using NLog;
 
@@ -9,7 +11,7 @@ namespace MqttBenchmark
     /// </summary>
     public class PerfManager
     {
-        private readonly Dictionary<string, PerfItem> _items;
+        private readonly ConcurrentDictionary<string, PerfItem> _items;
         private static PerfManager _inst;
         private readonly char _separator = ';';
 
@@ -20,16 +22,12 @@ namespace MqttBenchmark
 
         private PerfManager()
         {
-            _items = new Dictionary<string, PerfItem>();
+            _items = new ConcurrentDictionary<string, PerfItem>();
         }
 
         internal PerfItem CreateMeasurement(string methodName)
         {
-            if (_items.ContainsKey(methodName))
-                return _items[methodName];
-
-            PerfItem itm = new PerfItem(methodName);
-            _items.Add(methodName, itm);
+            var itm = _items.AddOrUpdate(methodName, (s)=> new PerfItem(s), (s, item) => item);
             return itm;
         }
 
@@ -40,7 +38,6 @@ namespace MqttBenchmark
         //   [Conditional("PERF")]
         public void WriteLogging(Logger logger)
         {
-
             logger.Info("Performance analysis");
             logger.Info(WriteStatistics());
         }
@@ -49,16 +46,16 @@ namespace MqttBenchmark
         {
             StringBuilder stringBuilder = new StringBuilder();
             // Header
-            string x = "Full member name" + _separator;
-            x += "Checkpoint (cp)" + _separator;
-            x += "Total exec." + _separator;
-            x += "Time 1st run" + _separator;
-            x += "Total time 1st run exec." + _separator;
-            x += "1st run exec. prev. cp" + _separator;
-            x += "Average to prev. cp" + _separator;
-            x += "Average to prev. cp (1st run ignored)" + _separator;
-            x += "Execution time" + _separator;
-            stringBuilder.AppendLine(x);
+            // string x = "Full member name" + _separator;
+            // x += "Checkpoint (cp)" + _separator;
+            // x += "Total exec." + _separator;
+            // x += "Time 1st run" + _separator;
+            // x += "Total time 1st run exec." + _separator;
+            // x += "1st run exec. prev. cp" + _separator;
+            // x += "Average to prev. cp" + _separator;
+            // x += "Average to prev. cp (1st run ignored)" + _separator;
+            // x += "Execution time" + _separator;
+            // stringBuilder.AppendLine(x);
 
             foreach (PerfItem item in _items.Values)
             {
@@ -67,7 +64,6 @@ namespace MqttBenchmark
 
             return stringBuilder.ToString();
         }
-
     }
 
 
@@ -76,17 +72,17 @@ namespace MqttBenchmark
     /// </summary>
     public class PerfItem
     {
-        private readonly Stopwatch _stopwatch;
-        private readonly Stopwatch _stopwatchCp;
-        private readonly Dictionary<string, List<PerfLogItem>> _result;
+        private readonly ThreadLocal<Stopwatch> _stopwatch;
+        private readonly ThreadLocal<Stopwatch> _stopwatchCp;
+        private readonly ConcurrentDictionary<string, ConcurrentBag<PerfLogItem>> _result;
         private char _separator = ';';
 
         internal PerfItem(string methodName)
         {
             MethodName = methodName;
-            _result = new Dictionary<string, List<PerfLogItem>>();
-            _stopwatch = new Stopwatch();
-            _stopwatchCp = new Stopwatch();
+            _result = new ConcurrentDictionary<string, ConcurrentBag<PerfLogItem>>();
+            _stopwatch = new ThreadLocal<Stopwatch>(()=> new Stopwatch());
+            _stopwatchCp = new ThreadLocal<Stopwatch>(()=> new Stopwatch());
         }
 
         /// <summary>
@@ -96,31 +92,42 @@ namespace MqttBenchmark
 
         internal void Start()
         {
-            WriteMessage("Started");
-            _stopwatch.Reset();
-            _stopwatchCp.Reset();
-            _stopwatch.Start();
-            _stopwatchCp.Start();
+            Debug.Assert(_stopwatch.Value != null, "_stopwatch.Value != null");
+            Debug.Assert(_stopwatchCp.Value != null, "_stopwatchCp.Value != null");
+
+            _stopwatch.Value.Reset();
+            _stopwatchCp.Value.Reset();
+            _stopwatch.Value.Start();
+            _stopwatchCp.Value.Start();
         }
 
         internal void SetCheckPoint(string strDescription)
         {
-            _stopwatch.Stop();
-            _stopwatchCp.Stop();
-            WriteMessage("Checkpoint \"{0}\" at {1} ms", strDescription, _stopwatch.ElapsedMilliseconds);
-            setLog(strDescription, _stopwatchCp.ElapsedMilliseconds, _stopwatch.ElapsedMilliseconds, DateTime.Now);
-            _stopwatchCp.Reset();
-            _stopwatch.Start();
-            _stopwatchCp.Start();
+            Debug.Assert(_stopwatch.Value != null, "_stopwatch.Value != null");
+            Debug.Assert(_stopwatchCp.Value != null, "_stopwatchCp.Value != null");
+            
+            _stopwatch.Value.Stop();
+            _stopwatchCp.Value.Stop();
+            setLog(strDescription, _stopwatchCp.Value.ElapsedMilliseconds, _stopwatch.Value.ElapsedMilliseconds, DateTime.Now);
+            _stopwatchCp.Value.Reset();
+            _stopwatch.Value.Start();
+            _stopwatchCp.Value.Start();
         }
 
         private void Stop(string strDescription)
         {
-            _stopwatch.Stop();
-            _stopwatchCp.Stop();
-            WriteMessage("Finished \"{0}\" at {1} ms", strDescription, _stopwatch.ElapsedMilliseconds);
-            setLog(strDescription, _stopwatchCp.ElapsedMilliseconds, _stopwatch.ElapsedMilliseconds, DateTime.Now);
+            Debug.Assert(_stopwatch.Value != null, "_stopwatch.Value != null");
+            Debug.Assert(_stopwatchCp.Value != null, "_stopwatchCp.Value != null");
+            
+            _stopwatch.Value.Stop();
+            _stopwatchCp.Value.Stop();
+            
+            var elapsed = _stopwatch.Value.ElapsedMilliseconds;
+            var elapsedCp = _stopwatchCp.Value.ElapsedMilliseconds;
+
+            setLog(strDescription, elapsedCp, elapsed, DateTime.Now);
         }
+
         internal void Stop()
         {
             Stop("Finished");
@@ -128,78 +135,58 @@ namespace MqttBenchmark
 
         private void setLog(string strCheckPoint, long nElapsedCheckpoint, long nElapsed, DateTime dt)
         {
-            List<PerfLogItem> lst;
-            if (_result.ContainsKey(strCheckPoint))
-                lst = _result[strCheckPoint];
-            else
-            {
-                lst = new List<PerfLogItem>();
-                _result.Add(strCheckPoint, lst);
-            }
+            var lst = _result.AddOrUpdate(strCheckPoint,
+                (s)=> new ConcurrentBag<PerfLogItem>(), (s, item) => item);
 
             lst.Add(new PerfLogItem(nElapsed, nElapsedCheckpoint, dt));
         }
 
         internal void WriteToStream(StringBuilder stringBuilder)
         {
-            foreach (KeyValuePair<string, List<PerfLogItem>> item in _result)
+            foreach (KeyValuePair<string, ConcurrentBag<PerfLogItem>> item in _result)
             {
-                List<PerfLogItem> lst = item.Value;
+                ConcurrentBag<PerfLogItem> lst = item.Value;
 
                 string x = MethodName + _separator;
                 x += item.Key + _separator;
 
                 x += lst.Count.ToString() + _separator;
 
-                long nExecutionTime = 0;
-                int nCountNoFirst = 0;
-                long nExecutionTimeNoFirst = 0;
-                for (int i = 0; i < lst.Count; i++)
-                {
-                    if (i == 0)
-                    {
-                        x += lst[i].DateTime.ToString("yyyy-MM-dd H:mm:ss:ff") + _separator;
-                        x += lst[i].ElapsedTotalRun.ToString() + _separator;
-                        x += lst[i].ElapsedSinceCp.ToString() + _separator;
-                    }
-                    nExecutionTime += lst[i].ElapsedSinceCp;
-                    if (i != 0)
-                    {
-                        nCountNoFirst++;
-                        nExecutionTimeNoFirst += lst[i].ElapsedSinceCp;
+                var maxElapsed = lst.Max(p => p.ElapsedTotalRun);
+                var minElapsed = lst.Min(p => p.ElapsedTotalRun);
+                var avgElapsed = Math.Round(lst.Average(p => p.ElapsedTotalRun), 0);
+                var medElapsed = Math.Round(lst.Median(p => p.ElapsedTotalRun), 0);
+                var sdElapsed = Math.Round(lst.StandardDeviation(p => p.ElapsedTotalRun), 0);
 
-                    }
-                }
-                long nAverageCp = nExecutionTime / lst.Count;
-                x += nAverageCp.ToString() + _separator;
+                var y = lst.Where(p => p.ElapsedTotalRun > 1000);
 
-                if (nCountNoFirst == 0)
-                {
-                    x += "n/a" + _separator;
-                }
-                else
-                {
-                    long nAverageCpNoFirst = nExecutionTimeNoFirst / nCountNoFirst;
+                //x += maxElapsed.ToString() + _separator;
+               // x += minElapsed.ToString() + _separator;
+                x += ",mean" + avgElapsed.ToString(CultureInfo.InvariantCulture) + _separator;
+               // x += medElapsed.ToString(CultureInfo.InvariantCulture) + _separator;
+                x += ",stddev" + sdElapsed.ToString(CultureInfo.InvariantCulture) + _separator;
+                x += ",1=" + lst.GetQuantileOne(p=> p.ElapsedTotalRun).ToString(CultureInfo.InvariantCulture) + _separator;
+                x += ",2=" + lst.GetQuantileTwo(p=> p.ElapsedTotalRun).ToString(CultureInfo.InvariantCulture) + _separator;
+                x += ",3=" + lst.GetQuantileThree(p=> p.ElapsedTotalRun).ToString(CultureInfo.InvariantCulture) + _separator;
+                x += ",4=" + lst.GetQuantileFour(p=> p.ElapsedTotalRun).ToString(CultureInfo.InvariantCulture) + _separator;
+                x += ",95%=" + lst.GetQuantile(p=> p.ElapsedTotalRun, 95).ToString(CultureInfo.InvariantCulture) + _separator;
 
-                    x += nAverageCpNoFirst.ToString() + _separator;
-                }
-                x += nExecutionTime.ToString() + _separator;
+                
                 stringBuilder.AppendLine(x);
             }
-
         }
 
-        private void WriteMessage(string text)
-        {
-            WriteMessage(text, new object[] { });
-        }
-
-        private void WriteMessage(string text, params object[] arg)
-        {
-            string dt = DateTime.Now.ToString("H:mm:ss:f");
-            string str = String.Format(text, arg);
-          //  Console.WriteLine("{0}:{1} {2}", dt, this.MethodName, str);
-        }
+        // private void WriteMessage(string text)
+        // {
+        //     WriteMessage(text, new object[] { });
+        // }
+        //
+        // private void WriteMessage(string text, params object[] arg)
+        // {
+        //     string dt = DateTime.Now.ToString("H:mm:ss:f");
+        //     string str = String.Format(text, arg);
+        //   //  Console.WriteLine("{0}:{1} {2}", dt, this.MethodName, str);
+        // }
 
         private class PerfLogItem
         {

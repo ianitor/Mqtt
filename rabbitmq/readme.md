@@ -1,0 +1,1 @@
+docker run --rm -dP -e RABBITMQ_DEFAULT_USER=user -e RABBITMQ_DEFAULT_PASS=pass --name rabbitmq rabbitmq:management

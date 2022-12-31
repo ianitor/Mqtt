@@ -78,7 +78,6 @@ namespace MqttBenchmark.Commands.Implementations
 
                             await benchMqttClient.Connect(address, clientId);
 
-
                             for (int j = 0; j < messageByClientCount; j++)
                             {
                                 if (messageIntervalTimeMs.HasValue)

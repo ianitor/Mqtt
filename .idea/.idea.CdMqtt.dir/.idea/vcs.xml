@@ -3,6 +3,5 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/emqtt-bench" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/emqtt-bench/emqtt-bench" vcs="Git" />
   </component>
 </project>

@@ -1,3 +1,4 @@
+using System.Text;
 using MQTTnet;
 using MQTTnet.Client;
 using MQTTnet.Protocol;
@@ -33,9 +34,10 @@ public class BenchMqttClient : IBenchMqttClient
     {
         var mqttClientOptions = new MqttClientOptionsBuilder()
             .WithClientId(clientId)
-            .WithTcpServer("192.168.14.71")
+          //  .WithCredentials("user", "pass")
+            .WithTcpServer(address)
             .Build();
-
+        
         await _mqttClient.ConnectAsync(mqttClientOptions, CancellationToken.None);
     }
 
@@ -56,15 +58,14 @@ public class BenchMqttClient : IBenchMqttClient
         string payload = date.PadLeft(remainingLength / 16, 'a');
         var applicationMessage = new MqttApplicationMessageBuilder()
             .WithTopic(topic)
-            .WithQualityOfServiceLevel(MqttQualityOfServiceLevel.AtMostOnce)
+            .WithQualityOfServiceLevel(MqttQualityOfServiceLevel.AtLeastOnce)
             .WithPayload(payload)
             .Build();
-
+        
         var result = await _mqttClient.PublishAsync(applicationMessage, CancellationToken.None);
         if (result.ReasonCode != MqttClientPublishReasonCode.Success)
         {
             Logger.Error($"Result: PacketIdentifier='{result.PacketIdentifier}', ReasonCode='{result.ReasonCode}', ReasonString='{result.ReasonString}'");
-
         }          
     }
 
